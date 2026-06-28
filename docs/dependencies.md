@@ -1,6 +1,13 @@
 ## Project Dependencies
 1. **Spring Boot starter parent**
     **Version: 3.x**
+    - dependency version management for most Spring dependencies 
+    - default plugin configurations: 
+        - maven-compiler-plugin
+        - maven-surefire-plugin
+        - maven-jar-plugin
+        - spring-boot-maven-plugin
+    
 
 2. **Spring Boot starter Web**
     - Provides Tomcat 
