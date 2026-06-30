@@ -29,3 +29,17 @@
     - I learnt to read carefully the specification document in order to find the project dependencies. Most dependencies can be extracted from the Non-functional Requirements sections, but other can be anywhere.
     - I learnt that maven wrappers are important and they should be uploaded to github in order for other users to run the application without the need of having maven installed in their machine.
     - .gitattributes can handle how the end of line is translated in different text documents.
+
+
+### 28-29/6
+1. **Work done**
+    - Configure pom.xml: Integrate Spring parent, Web, JPA, validation, SpringDoc, PostgreSQL dependencies.
+    - Create the first version of README.md: Title, Description, Overview/Features, Tech-Stack and Prerequisites.
+2. **Challenges**
+    - Had to check dependency compatibility between Spring & SpringDoc.
+    - PostgreSQL's version is configured at spring-boot-starter-parent.
+    - Had to understand the "scope" element used by POM.xml.
+3. **Knowledge Gained**
+    - I only need to define the Spring-Boot version once at spring-boot-starter-parent and this applied to most spring dependencies.
+    - Gained better understanding of scopes. 
+    - Git History Management: Used git stash & git rebase -i, to rewrite local commit message.
