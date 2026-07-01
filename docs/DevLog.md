@@ -43,3 +43,16 @@
     - I only need to define the Spring-Boot version once at spring-boot-starter-parent and this applied to most spring dependencies.
     - Gained better understanding of scopes. 
     - Git History Management: Used git stash & git rebase -i, to rewrite local commit message.
+
+### 1/7
+1. **Work done**
+    - Added db folder, for database initialization.
+    - Initialized docker-compose.yml, by adding the first service which configures, initialize and starts the database.
+    - Created .env file and added the database credentials, which are used by db service in docker-compose.yml.
+2. **Challenges**
+    - I was having problems to connect my machine to the container where the database is running.
+    - I also wasn't sure how the initialization of the database works while using docker.
+    - I wasn't sure about where the database credentials should be stored.
+3. **Knowledge Gained**
+    - I learnt that to run a database with docker doesn't require a Dockerfile.
+    - I understood that sensitive information should be stored in .env files and not be uploaded to github.
