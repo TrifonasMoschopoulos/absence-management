@@ -1,14 +1,18 @@
 
 services:
   db:
-    image: postgres
+    image: postgres:${PG_VERSION}
     ports:
       - 5433:5432
     volumes:
       - ./db:/docker-entrypoint-initdb.d
+      - db_data:/var/lib/postgresql/data
 
     environment: 
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_DATABASE}
+      PGDATA: /var/lib/postgresql/data
 
+volumes:
+  db_data:
