@@ -2,3 +2,4 @@
 target/
 project-requirements-document.pdf
 .env
+api-design.md
