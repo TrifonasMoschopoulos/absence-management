@@ -86,10 +86,9 @@ public class StudentController {
     )
     @ApiResponses({
         @ApiResponse(responseCode="200", description="Student updated successfully"),
-        @ApiResponse(responseCode="400", description="Validation error (blank fields or invalid email address)", content=@Content),
+        @ApiResponse(responseCode="400", description="Validation error (blank fields/invalid email address). At least one field must be given", content=@Content),
         @ApiResponse(responseCode="404", description="Provided id doesn't exist", content=@Content),
         @ApiResponse(responseCode="409", description="Conflict: Email already exists", content=@Content),
-        @ApiResponse(responseCode="422", description="At least one field must be given", content=@Content)
     })
     public StudentResponse updateStudent(@PathVariable Long id, @Valid @RequestBody StudentPatchRequest request){
         return studentService.patchStudent(id, request);

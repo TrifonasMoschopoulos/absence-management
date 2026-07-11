@@ -10,7 +10,7 @@ import gr.techpro.absence.entity.Student;
 import gr.techpro.absence.dto.request.StudentCreateRequest;
 import gr.techpro.absence.dto.request.StudentPatchRequest;
 import gr.techpro.absence.dto.response.StudentResponse;
-import gr.techpro.absence.exception.InvalidRequestException;
+import gr.techpro.absence.exception.BadRequestException;
 import gr.techpro.absence.exception.ResourceAlreadyExistsException;
 import gr.techpro.absence.exception.ResourceNotFoundException;
 import gr.techpro.absence.mapper.StudentMapper;
@@ -37,15 +37,8 @@ public class StudentService {
         List<Student> students = studentRepository.searchStudents(firstName, lastName);
         return StudentMapper.toResponseList(students);
     }
-
-    public void deleteStudentById(Long id){
-        if (!studentRepository.existsById(id))
-            throw new ResourceNotFoundException("Student with id " + id + " not found.");
-        
-        studentRepository.deleteById(id);
-    }
-
-
+    
+    
     public StudentResponse registerStudent(StudentCreateRequest request){
         if (studentRepository.existsByEmail(request.getEmail()))
             throw new ResourceAlreadyExistsException("Email is used.");
@@ -57,10 +50,21 @@ public class StudentService {
     }
 
 
+
+    public void deleteStudentById(Long id){
+        if (!studentRepository.existsById(id))
+            throw new ResourceNotFoundException("Student with id " + id + " not found.");
+        
+        studentRepository.deleteById(id);
+    }
+
+    
+
+
     @Transactional
     public StudentResponse patchStudent(Long id, StudentPatchRequest request){
         if (request.getFirstName() == null && request.getLastName() == null && request.getEmail() == null)
-            throw new InvalidRequestException("At least one attribute must be given."); 
+            throw new BadRequestException("At least one attribute must be given."); 
 
         Student student = studentRepository.findById(id).orElseThrow(
             () -> new ResourceNotFoundException("Student with id " + id + " not found.")
