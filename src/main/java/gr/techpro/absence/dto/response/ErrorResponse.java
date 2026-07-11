@@ -8,10 +8,10 @@ import java.time.LocalDateTime;
 public class ErrorResponse {
     private LocalDateTime timestamp;
     private HttpStatus status;
-    private String message;
+    private Object message;
     private String path;
 
-    public ErrorResponse(HttpStatus status, String message, HttpServletRequest request){
+    public ErrorResponse(HttpStatus status, Object message, HttpServletRequest request){
         this.timestamp = LocalDateTime.now();
         this.status = status;
         this.message = message;
@@ -20,7 +20,7 @@ public class ErrorResponse {
 
     public LocalDateTime getTimestamp() { return this.timestamp; }
     public HttpStatus getStatus() { return this.status; }
-    public String getMessage() { return this.message; }
+    public Object getMessage() { return this.message; }
     public String getPath() { return this.path; }
 
 }

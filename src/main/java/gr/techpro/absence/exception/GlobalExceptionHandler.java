@@ -60,7 +60,7 @@ public class GlobalExceptionHandler {
                                               );
 
 
-        ErrorResponse response = new ErrorResponse(HttpStatus.BAD_REQUEST, errors.toString(), request);
+        ErrorResponse response = new ErrorResponse(HttpStatus.BAD_REQUEST, errors, request);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
 
@@ -83,7 +83,7 @@ public class GlobalExceptionHandler {
                     }, 
                     ConstraintViolation::getMessage
                 ));
-        ErrorResponse response = new ErrorResponse(HttpStatus.BAD_REQUEST, errors.toString(), request);
+        ErrorResponse response = new ErrorResponse(HttpStatus.BAD_REQUEST, errors, request);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
 
