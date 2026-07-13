@@ -24,7 +24,6 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/instructors")
-@Tag(name = "Instructor Management", description = "Endpoints for creating and retrieving instructors")
 public class InstructorController {
 
     private InstructorService service;
@@ -35,23 +34,12 @@ public class InstructorController {
 
 
     @GetMapping("/{id}")
-    @Operation(summary="Retrieves an instructor",
-        description="Retrieves an existing instructor based on their id (surrogate key)"
-    )
-    @ApiResponses({
-        @ApiResponse(responseCode="200", description="Instructor retrieved successfully"),
-        @ApiResponse(responseCode="404", description="Instructor with given id doesn't exist", content=@Content)
-    })
     public InstructorResponse getInstructor(@PathVariable Long id){
         return service.getInstructorById(id);
     }
 
 
     @GetMapping
-    @Operation(summary="Retrieving instructors with optional filters",
-        description="Apply optional filters to retrieve a list of instructors. If no filters are given, it retrieves all instructors"
-    )
-    @ApiResponse(responseCode="200", description="Retrieved instructors successfully")
     public List<InstructorResponse> getInstructors(
         @RequestParam(required=false) String firstName, 
         @RequestParam(required=false) String lastName
@@ -62,14 +50,6 @@ public class InstructorController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @Operation(summary="Create a new instructor",
-        description="Add a new instructor if all fields are valid"
-    )
-    @ApiResponses({
-        @ApiResponse(responseCode="201", description="Instructor created successfully"),
-        @ApiResponse(responseCode="400", description="Invalid value for any field", content=@Content),
-        @ApiResponse(responseCode="409", description="Conflict: Email already exists", content=@Content)  
-    })
     public InstructorResponse createInstructor(@Valid @RequestBody InstructorCreateRequest instructorRequest){
         return service.registerInstructor(instructorRequest);
     }
