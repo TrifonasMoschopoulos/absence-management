@@ -8,6 +8,7 @@ import org.springframework.validation.annotation.Validated;
 import gr.techpro.absence.dto.request.ModuleCreateRequest;
 import gr.techpro.absence.dto.request.ModulePatchRequest;
 import gr.techpro.absence.dto.response.ModuleResponse;
+import gr.techpro.absence.enums.Semester;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -16,17 +17,16 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 
 
 
-@Tag(name="Module Management", description="Endpoints for creating, retrieving, updating and deleting modules")
+@Tag(name="Module Management", description="Endpoints to create, retrieve, update and delete modules")
 @Validated
 public interface ModuleApi {
 
 
-    @Operation(summary="Retrieving a module based on their id",
+    @Operation(summary="Retrieve a module",
         description="Retrieves a module by their surrogate key. The provided key must belong to an existing module"
     )
     @ApiResponses({
@@ -38,7 +38,7 @@ public interface ModuleApi {
 
 
 
-    @Operation(summary="Retrieving modules with optional filters",
+    @Operation(summary="Retrieve modules with optional filters",
         description="Retrieve a list of modules with filtering options. If no filters are provided, it retrieves all modules"
     )
     @ApiResponses({
@@ -51,8 +51,7 @@ public interface ModuleApi {
         @Positive(message="Credits must be a positive number (>0)") 
         Integer credits,
 
-        @Pattern(regexp="FALL|SPRING|SUMMER", message="Invalid semester. Accepted values: FALL, SPRING, SUMMER") 
-        String semester,
+        Semester semester,
 
         @Min(value=1000, message="Academic Year must be 4-digit number") 
         @Max(value=9999, message="Academic Year must be 4-digit number") 
@@ -63,11 +62,12 @@ public interface ModuleApi {
 
 
     @Operation(summary="Create a new module",
-        description="Add a new module and generate a unique module code"
+        description="Initiate a new module. All fields are mandatory"
     )
     @ApiResponses({
         @ApiResponse(responseCode="201", description="Module created successfully"),
-        @ApiResponse(responseCode="400", description="Invalid value for any field", content=@Content)
+        @ApiResponse(responseCode="400", description="Invalid value for any field", content=@Content),
+        @ApiResponse(responseCode="409", description="Module 'code' already exists", content=@Content)
     })
     ModuleResponse createModule(@Valid ModuleCreateRequest module);
 

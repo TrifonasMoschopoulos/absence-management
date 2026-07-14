@@ -33,10 +33,8 @@ public class ModuleService {
     }
 
 
-    public List<ModuleResponse> getFilteredModules(String title, Integer credits, String semester, Integer academicYear){
-        Semester semesterEnum = (semester == null ? null : Semester.valueOf(semester) );
-        
-        List<Module> modules = moduleRepository.searchModules(title, credits, semesterEnum, academicYear);
+    public List<ModuleResponse> getFilteredModules(String title, Integer credits, Semester semester, Integer academicYear){
+        List<Module> modules = moduleRepository.searchModules(title, credits, semester, academicYear);
         return ModuleMapper.toResponseList(modules);
     }
 
@@ -65,7 +63,7 @@ public class ModuleService {
         if (request.getCredits() != null)
             module.setCredits(request.getCredits());
         if (request.getSemester() != null)
-            module.setSemester(Semester.valueOf(request.getSemester()));
+            module.setSemester(request.getSemester());
         if (request.getAcademicYear() != null)
             module.setAcademicYear(request.getAcademicYear());
 

@@ -18,6 +18,7 @@ import gr.techpro.absence.api.ModuleApi;
 import gr.techpro.absence.dto.request.ModuleCreateRequest;
 import gr.techpro.absence.dto.request.ModulePatchRequest;
 import gr.techpro.absence.dto.response.ModuleResponse;
+import gr.techpro.absence.enums.Semester;
 import gr.techpro.absence.service.ModuleService;
 
 
@@ -42,7 +43,7 @@ public class ModuleController implements ModuleApi{
     public List<ModuleResponse> getModules(
             @RequestParam(required=false) String title, 
             @RequestParam(required=false) Integer credits, 
-            @RequestParam(required=false) String semester, 
+            @RequestParam(required=false) Semester semester, 
             @RequestParam(required=false) Integer academicYear
     ){
         return moduleService.getFilteredModules(title, credits, semester, academicYear);

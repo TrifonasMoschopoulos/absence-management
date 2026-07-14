@@ -1,5 +1,6 @@
 package gr.techpro.absence.dto.request;
 
+import gr.techpro.absence.enums.Semester;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -37,10 +38,9 @@ public class ModuleCreateRequest {
     @Schema(description="Must be a positive number", example="5")
     private Integer credits;
 
-    @NotBlank
-    @Pattern(regexp="FALL|SPRING|SUMMER", message="Invalid semester. Accepted values: FALL, SPRING, SUMMER")
+    @NotNull
     @Schema(description="Accepted values are: 'FALL', 'SPRING', 'SUMMER'", example="FALL")
-    private String semester;
+    private Semester semester;
 
     @NotNull
     @Min(value=1000, message="Academic year must be a 4-digit number")
@@ -59,8 +59,8 @@ public class ModuleCreateRequest {
     public Integer getCredits() { return this.credits; }
     public void setCredits(Integer credits) { this.credits = credits;}
 
-    public String getSemester() { return this.semester; }
-    public void setSemester(String semester) { this.semester = semester;}
+    public Semester getSemester() { return this.semester; }
+    public void setSemester(Semester semester) { this.semester = semester;}
 
     public Integer getAcademicYear() { return this.academicYear; }
     public void setAcademicYear(Integer academicYear) { this.academicYear = academicYear; }

@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 import gr.techpro.absence.dto.request.ModuleCreateRequest;
 import gr.techpro.absence.dto.response.ModuleResponse;
-import gr.techpro.absence.enums.Semester;
 
 public class ModuleMapper {
     
@@ -30,14 +29,11 @@ public class ModuleMapper {
 
 
     public static Module toModule(ModuleCreateRequest request){
-        // Convert semester to Enum type
-        Semester semester = Semester.valueOf(request.getSemester());
-        
         return new Module(
             request.getCode(),
             request.getTitle(),
             request.getCredits(),
-            semester,
+            request.getSemester(),
             request.getAcademicYear()
         );
     }
