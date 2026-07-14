@@ -11,6 +11,22 @@ import jakarta.validation.constraints.Positive;
 
 @Schema(description="Payload for creating a new module. All fields are mandatory")
 public class ModuleCreateRequest {
+
+    @NotBlank
+    @Pattern(
+        regexp="\\S{5,}",
+        message="Module code must contain at least 5 characters and must not contain spaces"    
+    )
+    @Schema(description="""
+        Human-readable unique identifier for the module. 
+        Used as a stable user-friendly reference.
+        Unlike the internal database ID, this code remains consistent across different environments. 
+        Rules for code: 
+        1. It must not be empty or null
+        2. It must not contain empty characters (space) 
+        3. It must contain at least 5 characters 
+    """, example="CS101")
+    private String code;
     
     @NotBlank
     @Schema(description="Must contain at least one non-white character", example="Introduction to Java")
@@ -33,6 +49,9 @@ public class ModuleCreateRequest {
     private Integer academicYear;
 
     public ModuleCreateRequest() {}
+
+    public String getCode() { return this.code; }
+    public void setCode(String code) { this.code = code; }
 
     public String getTitle() { return this.title; }
     public void setTitle(String title) { this.title = title; }

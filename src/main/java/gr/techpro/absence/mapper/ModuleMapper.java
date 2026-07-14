@@ -29,12 +29,12 @@ public class ModuleMapper {
     }
 
 
-    public static Module toModule(ModuleCreateRequest request, String moduleCode){
+    public static Module toModule(ModuleCreateRequest request){
         // Convert semester to Enum type
         Semester semester = Semester.valueOf(request.getSemester());
         
         return new Module(
-            moduleCode,
+            request.getCode(),
             request.getTitle(),
             request.getCredits(),
             semester,

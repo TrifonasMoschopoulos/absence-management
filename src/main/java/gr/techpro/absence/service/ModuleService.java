@@ -12,6 +12,7 @@ import gr.techpro.absence.dto.response.ModuleResponse;
 import gr.techpro.absence.repository.ModuleRepository;
 import jakarta.transaction.Transactional;
 import gr.techpro.absence.exception.BadRequestException;
+import gr.techpro.absence.exception.ResourceAlreadyExistsException;
 import gr.techpro.absence.exception.ResourceNotFoundException;
 import gr.techpro.absence.mapper.ModuleMapper;
 
@@ -41,9 +42,11 @@ public class ModuleService {
 
 
     public ModuleResponse registerModule(ModuleCreateRequest moduleRequest){
-        Module module = ModuleMapper.toModule(moduleRequest, generateModuleCode(moduleRequest.getTitle()));
+        if (moduleRepository.existsByCode(moduleRequest.getCode()))
+            throw new ResourceAlreadyExistsException("Module code: '" + moduleRequest.getCode() + "' already exists");
+
+        Module module = ModuleMapper.toModule(moduleRequest);
         moduleRepository.save(module);
-        
         return ModuleMapper.toResponse(module);
     }
 
@@ -76,10 +79,4 @@ public class ModuleService {
         moduleRepository.deleteById(id);
     }
 
-
-    private String generateModuleCode(String moduleTitle){
-        String prefix = "CS";
-        return prefix + "997";
-
-    }
 }
