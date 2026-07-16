@@ -12,19 +12,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import gr.techpro.absence.api.InstructorApi;
 import gr.techpro.absence.dto.request.InstructorCreateRequest;
 import gr.techpro.absence.dto.response.InstructorResponse;
 import gr.techpro.absence.service.InstructorService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/instructors")
-public class InstructorController {
+public class InstructorController implements InstructorApi{
 
     private InstructorService service;
     
