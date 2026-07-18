@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS module_instructor (
     module_id      BIGINT NOT NULL REFERENCES module(id)     ON DELETE CASCADE,
     instructor_id  BIGINT NOT NULL REFERENCES instructor(id) ON DELETE CASCADE,
     role           VARCHAR(50) NOT NULL DEFAULT 'LEAD',      -- LEAD | ASSISTANT
-    UNIQUE (module_id, instructor_id)
+    CONSTRAINT uq_module_instructor UNIQUE (module_id, instructor_id)
 );
 
 -- students

@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import gr.techpro.absence.dto.request.ModuleCreateRequest;
 import gr.techpro.absence.dto.response.ModuleResponse;
+import gr.techpro.absence.dto.response.ModuleSummary;
 
 public class ModuleMapper {
     
@@ -36,5 +37,11 @@ public class ModuleMapper {
             request.getSemester(),
             request.getAcademicYear()
         );
+    }
+
+
+    public static ModuleSummary toSummary(Module module){
+        return new ModuleSummary(
+            module.getId(), module.getCode(), module.getTitle(), module.getSemester(), module.getAcademicYear());
     }
 }
