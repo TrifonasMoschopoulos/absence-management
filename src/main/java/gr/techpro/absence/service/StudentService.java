@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import gr.techpro.absence.entity.Student;
 import gr.techpro.absence.dto.request.StudentCreateRequest;
 import gr.techpro.absence.dto.request.StudentPatchRequest;
-import gr.techpro.absence.dto.response.StudentResponse;
+import gr.techpro.absence.dto.response.student.StudentResponse;
 import gr.techpro.absence.exception.BadRequestException;
 import gr.techpro.absence.exception.ResourceAlreadyExistsException;
 import gr.techpro.absence.exception.ResourceNotFoundException;
@@ -35,7 +35,7 @@ public class StudentService {
 
     public List<StudentResponse> getFilteredStudents(String firstName, String lastName){
         List<Student> students = studentRepository.searchStudents(firstName, lastName);
-        return StudentMapper.toResponseList(students);
+        return StudentMapper.toResponse(students);
     }
     
     

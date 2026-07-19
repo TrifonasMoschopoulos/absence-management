@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import gr.techpro.absence.dto.request.TeachingAssignmentCreateRequest;
-import gr.techpro.absence.dto.response.InstructorAssignmentResponse;
-import gr.techpro.absence.dto.response.TeachingAssignmentResponse;
+import gr.techpro.absence.dto.response.teaching_assignment.InstructorAssignmentResponse;
+import gr.techpro.absence.dto.response.teaching_assignment.TeachingAssignmentResponse;
 import gr.techpro.absence.entity.TeachingAssignment;
 import gr.techpro.absence.entity.Instructor;
 import gr.techpro.absence.entity.Module;

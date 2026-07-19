@@ -5,7 +5,7 @@ import java.util.List;
 
 import gr.techpro.absence.dto.request.StudentCreateRequest;
 import gr.techpro.absence.dto.request.StudentPatchRequest;
-import gr.techpro.absence.dto.response.StudentResponse;
+import gr.techpro.absence.dto.response.student.StudentResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

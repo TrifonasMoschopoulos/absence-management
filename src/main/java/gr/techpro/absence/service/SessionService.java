@@ -8,7 +8,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import gr.techpro.absence.dto.request.SessionCreateRequest;
-import gr.techpro.absence.dto.response.SessionResponse;
+import gr.techpro.absence.dto.response.session.SessionResponse;
 import gr.techpro.absence.entity.Session;
 import gr.techpro.absence.entity.Module;
 import gr.techpro.absence.exception.BusinessRuleViolationException;

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import gr.techpro.absence.api.ModuleApi;
 import gr.techpro.absence.dto.request.ModuleCreateRequest;
 import gr.techpro.absence.dto.request.ModulePatchRequest;
-import gr.techpro.absence.dto.response.ModuleResponse;
+import gr.techpro.absence.dto.response.module.ModuleResponse;
 import gr.techpro.absence.enums.Semester;
 import gr.techpro.absence.service.ModuleService;
 

@@ -1,4 +1,4 @@
-package gr.techpro.absence.dto.response;
+package gr.techpro.absence.dto.response.session;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

@@ -3,7 +3,7 @@ package gr.techpro.absence.mapper;
 import java.util.List;
 
 import gr.techpro.absence.dto.request.InstructorCreateRequest;
-import gr.techpro.absence.dto.response.InstructorResponse;
+import gr.techpro.absence.dto.response.instructor.InstructorResponse;
 import gr.techpro.absence.entity.Instructor;
 
 public class InstructorMapper {

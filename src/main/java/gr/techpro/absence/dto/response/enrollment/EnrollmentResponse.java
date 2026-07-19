@@ -1,7 +1,9 @@
-package gr.techpro.absence.dto.response;
+package gr.techpro.absence.dto.response.enrollment;
 
 import java.time.LocalDate;
 
+import gr.techpro.absence.dto.response.shared.ModuleSummary;
+import gr.techpro.absence.dto.response.shared.StudentSummary;
 import gr.techpro.absence.enums.EnrollmentStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 
@@ -30,16 +32,6 @@ public class EnrollmentResponse {
     @Schema(description="The module this enrollment concerns")
     private ModuleSummary module;
 
-    // NESTED public records used as DTOs for student and module information
-    public record StudentSummary(
-        @Schema(example="15") Long id, 
-        @Schema(description="Human readable Unique identifier for student.", example="STU2025001") String studentNumber, 
-        @Schema(example="Eleni") String firstName, 
-        @Schema(example="Vasiliou") String lastName, 
-        @Schema(example="e.vasiliou@students.techpro.gr") String email
-    ) {}
-
-    
     
     public EnrollmentResponse() {}
     

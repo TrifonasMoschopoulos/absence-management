@@ -1,5 +1,6 @@
-package gr.techpro.absence.dto.response;
+package gr.techpro.absence.dto.response.teaching_assignment;
 
+import gr.techpro.absence.dto.response.shared.ModuleSummary;
 import gr.techpro.absence.enums.TeachingRole;
 import io.swagger.v3.oas.annotations.media.Schema;
 

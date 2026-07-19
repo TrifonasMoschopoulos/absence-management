@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import gr.techpro.absence.dto.request.InstructorCreateRequest;
-import gr.techpro.absence.dto.response.InstructorResponse;
+import gr.techpro.absence.dto.response.instructor.InstructorResponse;
 import gr.techpro.absence.entity.Instructor;
 import gr.techpro.absence.repository.InstructorRepository;
 import gr.techpro.absence.exception.ResourceAlreadyExistsException;

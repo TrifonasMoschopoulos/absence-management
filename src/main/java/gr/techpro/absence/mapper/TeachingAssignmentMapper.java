@@ -2,9 +2,9 @@ package gr.techpro.absence.mapper;
 
 import java.util.List;
 
-import gr.techpro.absence.dto.response.InstructorAssignmentResponse;
-import gr.techpro.absence.dto.response.ModuleSummary;
-import gr.techpro.absence.dto.response.TeachingAssignmentResponse;
+import gr.techpro.absence.dto.response.shared.ModuleSummary;
+import gr.techpro.absence.dto.response.teaching_assignment.InstructorAssignmentResponse;
+import gr.techpro.absence.dto.response.teaching_assignment.TeachingAssignmentResponse;
 import gr.techpro.absence.entity.Instructor;
 import gr.techpro.absence.entity.Module;
 import gr.techpro.absence.entity.TeachingAssignment;

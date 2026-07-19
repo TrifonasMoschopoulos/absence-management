@@ -1,4 +1,4 @@
-package gr.techpro.absence.dto.response;
+package gr.techpro.absence.dto.response.shared;
 
 import org.springframework.http.HttpStatus;
 import jakarta.servlet.http.HttpServletRequest;

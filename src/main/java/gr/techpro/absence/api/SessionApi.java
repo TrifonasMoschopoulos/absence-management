@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import gr.techpro.absence.dto.request.SessionCreateRequest;
-import gr.techpro.absence.dto.response.SessionResponse;
+import gr.techpro.absence.dto.response.session.SessionResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

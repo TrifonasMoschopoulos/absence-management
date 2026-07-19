@@ -8,7 +8,7 @@ import gr.techpro.absence.entity.Module;
 import gr.techpro.absence.enums.Semester;
 import gr.techpro.absence.dto.request.ModuleCreateRequest;
 import gr.techpro.absence.dto.request.ModulePatchRequest;
-import gr.techpro.absence.dto.response.ModuleResponse;
+import gr.techpro.absence.dto.response.module.ModuleResponse;
 import gr.techpro.absence.repository.ModuleRepository;
 import jakarta.transaction.Transactional;
 import gr.techpro.absence.exception.BadRequestException;
@@ -35,7 +35,7 @@ public class ModuleService {
 
     public List<ModuleResponse> getFilteredModules(String title, Integer credits, Semester semester, Integer academicYear){
         List<Module> modules = moduleRepository.searchModules(title, credits, semester, academicYear);
-        return ModuleMapper.toResponseList(modules);
+        return ModuleMapper.toResponse(modules);
     }
 
 

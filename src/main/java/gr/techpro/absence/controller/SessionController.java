@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import gr.techpro.absence.api.SessionApi;
 import gr.techpro.absence.dto.request.SessionCreateRequest;
-import gr.techpro.absence.dto.response.SessionResponse;
+import gr.techpro.absence.dto.response.session.SessionResponse;
 import gr.techpro.absence.service.SessionService;
 
 
@@ -31,6 +31,7 @@ public class SessionController implements SessionApi{
 
 
     @GetMapping("/sessions")
+    @Override
     public List<SessionResponse> getSessions(@PathVariable Long moduleId, @RequestParam(required=false) LocalDate from, @RequestParam(required=false) LocalDate to){
         return sessionService.getSessionsByModuleId(moduleId, from, to);
     }
@@ -38,6 +39,7 @@ public class SessionController implements SessionApi{
 
     @PostMapping("/sessions")
     @ResponseStatus(HttpStatus.CREATED)
+    @Override
     public SessionResponse createSession(@PathVariable Long moduleId, @RequestBody SessionCreateRequest request){
         return sessionService.createSessionForModule(moduleId, request);
     }

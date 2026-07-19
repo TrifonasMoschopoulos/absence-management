@@ -1,4 +1,4 @@
-package gr.techpro.absence.dto.response;
+package gr.techpro.absence.dto.response.instructor;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

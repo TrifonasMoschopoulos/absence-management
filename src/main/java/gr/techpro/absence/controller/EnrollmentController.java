@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import gr.techpro.absence.api.EnrollmentApi;
 import gr.techpro.absence.dto.request.EnrollmentCreateRequest;
-import gr.techpro.absence.dto.response.EnrollmentResponse;
+import gr.techpro.absence.dto.response.enrollment.EnrollmentResponse;
 import gr.techpro.absence.service.EnrollmentService;
 
 
@@ -28,6 +28,7 @@ public class EnrollmentController implements EnrollmentApi{
 
 
     @GetMapping("/{id}")
+    @Override
     public EnrollmentResponse getEnrollment(@PathVariable Long id){
         return service.getEnrollmentById(id);
     }
@@ -35,6 +36,7 @@ public class EnrollmentController implements EnrollmentApi{
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @Override
     public EnrollmentResponse createEnrollment(@RequestBody EnrollmentCreateRequest request){
         return service.enrollStudentToModule(request);
     }
@@ -42,6 +44,7 @@ public class EnrollmentController implements EnrollmentApi{
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @Override
     public void cancelEnrollment(@PathVariable Long id){
         service.cancelEnrollment(id);
     }

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import gr.techpro.absence.api.StudentApi;
 import gr.techpro.absence.dto.request.StudentCreateRequest;
 import gr.techpro.absence.dto.request.StudentPatchRequest;
-import gr.techpro.absence.dto.response.StudentResponse;
+import gr.techpro.absence.dto.response.student.StudentResponse;
 import gr.techpro.absence.service.StudentService;
 
 

@@ -3,7 +3,7 @@ package gr.techpro.absence.api;
 import java.util.List;
 
 import gr.techpro.absence.dto.request.InstructorCreateRequest;
-import gr.techpro.absence.dto.response.InstructorResponse;
+import gr.techpro.absence.dto.response.instructor.InstructorResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

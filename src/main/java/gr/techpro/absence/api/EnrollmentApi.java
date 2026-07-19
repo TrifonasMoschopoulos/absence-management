@@ -1,7 +1,7 @@
 package gr.techpro.absence.api;
 
 import gr.techpro.absence.dto.request.EnrollmentCreateRequest;
-import gr.techpro.absence.dto.response.EnrollmentResponse;
+import gr.techpro.absence.dto.response.enrollment.EnrollmentResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

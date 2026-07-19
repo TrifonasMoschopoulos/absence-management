@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import gr.techpro.absence.dto.request.TeachingAssignmentCreateRequest;
-import gr.techpro.absence.dto.response.InstructorAssignmentResponse;
-import gr.techpro.absence.dto.response.TeachingAssignmentResponse;
+import gr.techpro.absence.dto.response.teaching_assignment.InstructorAssignmentResponse;
+import gr.techpro.absence.dto.response.teaching_assignment.TeachingAssignmentResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

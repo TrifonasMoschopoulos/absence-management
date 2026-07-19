@@ -7,7 +7,7 @@ import org.springframework.validation.annotation.Validated;
 
 import gr.techpro.absence.dto.request.ModuleCreateRequest;
 import gr.techpro.absence.dto.request.ModulePatchRequest;
-import gr.techpro.absence.dto.response.ModuleResponse;
+import gr.techpro.absence.dto.response.module.ModuleResponse;
 import gr.techpro.absence.enums.Semester;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

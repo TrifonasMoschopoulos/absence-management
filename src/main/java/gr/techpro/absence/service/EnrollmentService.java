@@ -3,7 +3,7 @@ package gr.techpro.absence.service;
 import org.springframework.stereotype.Service;
 
 import gr.techpro.absence.dto.request.EnrollmentCreateRequest;
-import gr.techpro.absence.dto.response.EnrollmentResponse;
+import gr.techpro.absence.dto.response.enrollment.EnrollmentResponse;
 import gr.techpro.absence.entity.Enrollment;
 import gr.techpro.absence.entity.Student;
 import gr.techpro.absence.enums.EnrollmentStatus;

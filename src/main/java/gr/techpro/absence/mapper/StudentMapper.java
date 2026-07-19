@@ -4,7 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import gr.techpro.absence.dto.request.StudentCreateRequest;
-import gr.techpro.absence.dto.response.StudentResponse;
+import gr.techpro.absence.dto.response.shared.StudentSummary;
+import gr.techpro.absence.dto.response.student.StudentResponse;
 import gr.techpro.absence.entity.Student;
 
 public class StudentMapper {
@@ -29,9 +30,20 @@ public class StudentMapper {
         );
     }
 
-    public static List<StudentResponse> toResponseList(List<Student> students){
+    public static List<StudentResponse> toResponse(List<Student> students){
         return students.stream()
                         .map(StudentMapper::toResponse)
                         .collect(Collectors.toList());
+    }
+
+
+    public static StudentSummary toSummary(Student student){
+        return new StudentSummary(
+            student.getId(),
+            student.getStudentNumber(),
+            student.getFirstName(),
+            student.getLastName(),
+            student.getEmail()
+        );
     }
 }

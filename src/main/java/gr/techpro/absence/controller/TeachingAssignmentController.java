@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import gr.techpro.absence.api.TeachingAssignmentApi;
 import gr.techpro.absence.dto.request.TeachingAssignmentCreateRequest;
-import gr.techpro.absence.dto.response.InstructorAssignmentResponse;
-import gr.techpro.absence.dto.response.TeachingAssignmentResponse;
+import gr.techpro.absence.dto.response.teaching_assignment.InstructorAssignmentResponse;
+import gr.techpro.absence.dto.response.teaching_assignment.TeachingAssignmentResponse;
 import gr.techpro.absence.service.TeachingAssignmentService;
 
 
@@ -27,16 +27,16 @@ public class TeachingAssignmentController implements TeachingAssignmentApi{
     }
     
 
-    @Override
     @GetMapping("/instructors/{id}/teaching-assignments")
+    @Override
     public List<InstructorAssignmentResponse> getInstructorAssignments(Long id) {
         return service.getInstructorAssignments(id);
     }
 
 
-    @Override
     @PostMapping("/teaching-assignments")
     @ResponseStatus(HttpStatus.CREATED)
+    @Override
     public TeachingAssignmentResponse createTeachingAssignment(TeachingAssignmentCreateRequest request) {
         return service.assignInstructorToModule(request);
     }

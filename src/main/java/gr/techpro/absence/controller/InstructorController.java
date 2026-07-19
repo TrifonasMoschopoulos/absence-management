@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import gr.techpro.absence.api.InstructorApi;
 import gr.techpro.absence.dto.request.InstructorCreateRequest;
-import gr.techpro.absence.dto.response.InstructorResponse;
+import gr.techpro.absence.dto.response.instructor.InstructorResponse;
 import gr.techpro.absence.service.InstructorService;
 import jakarta.validation.Valid;
 
@@ -30,12 +30,14 @@ public class InstructorController implements InstructorApi{
 
 
     @GetMapping("/{id}")
+    @Override
     public InstructorResponse getInstructor(@PathVariable Long id){
         return service.getInstructorById(id);
     }
 
 
     @GetMapping
+    @Override
     public List<InstructorResponse> getInstructors(
         @RequestParam(required=false) String firstName, 
         @RequestParam(required=false) String lastName
@@ -46,6 +48,7 @@ public class InstructorController implements InstructorApi{
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @Override
     public InstructorResponse createInstructor(@Valid @RequestBody InstructorCreateRequest instructorRequest){
         return service.registerInstructor(instructorRequest);
     }

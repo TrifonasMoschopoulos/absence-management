@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import gr.techpro.absence.dto.request.ModuleCreateRequest;
-import gr.techpro.absence.dto.response.ModuleResponse;
-import gr.techpro.absence.dto.response.ModuleSummary;
+import gr.techpro.absence.dto.response.module.ModuleResponse;
+import gr.techpro.absence.dto.response.shared.ModuleSummary;
 
 public class ModuleMapper {
     
@@ -22,7 +22,7 @@ public class ModuleMapper {
         );
     }
 
-    public static List<ModuleResponse> toResponseList(List<Module> modules){
+    public static List<ModuleResponse> toResponse(List<Module> modules){
         return modules.stream()
                       .map(ModuleMapper::toResponse)
                       .collect(Collectors.toList());
