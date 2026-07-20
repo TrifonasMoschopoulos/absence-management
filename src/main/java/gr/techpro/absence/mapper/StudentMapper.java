@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import gr.techpro.absence.dto.request.StudentCreateRequest;
+import gr.techpro.absence.dto.response.shared.StudentIdentification;
 import gr.techpro.absence.dto.response.shared.StudentSummary;
 import gr.techpro.absence.dto.response.student.StudentResponse;
 import gr.techpro.absence.entity.Student;
@@ -44,6 +45,15 @@ public class StudentMapper {
             student.getFirstName(),
             student.getLastName(),
             student.getEmail()
+        );
+    }
+
+    public static StudentIdentification toIdentification(Student student){
+        return new StudentIdentification(
+            student.getId(),
+            student.getStudentNumber(),
+            student.getFirstName(),
+            student.getLastName()
         );
     }
 }

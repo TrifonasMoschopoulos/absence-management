@@ -4,6 +4,7 @@ import java.util.List;
 
 import gr.techpro.absence.dto.request.SessionCreateRequest;
 import gr.techpro.absence.dto.response.session.SessionResponse;
+import gr.techpro.absence.dto.response.shared.SessionSummary;
 import gr.techpro.absence.entity.Session;
 import gr.techpro.absence.entity.Module;
 
@@ -39,6 +40,17 @@ public class SessionMapper {
         return sessions.stream()
                        .map(SessionMapper::toResponse)
                        .toList();
+    }
+
+
+    public static SessionSummary toSummary(Session session){
+        return new SessionSummary(
+            session.getId(),
+            session.getSessionDate(),
+            session.getModule().getId(),
+            session.getModule().getCode(),
+            session.getModule().getTitle()
+        );
     }
     
 }
