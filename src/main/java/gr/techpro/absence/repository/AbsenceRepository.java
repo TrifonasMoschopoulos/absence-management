@@ -30,6 +30,17 @@ public interface AbsenceRepository extends JpaRepository<Absence, Long>, JpaSpec
 
     public boolean existsBySessionIdAndEnrollmentId(Long sessionId, Long enrollmentId);
 
+    public List<Absence> findByEnrollmentId(Long enrollmentId);
+
+    @Query(
+        """
+        SELECT a FROM Absence a 
+        JOIN FETCH a.enrollment e 
+        JOIN FETCH e.student 
+        WHERE e.module.id = :moduleId
+    """)
+    public List<Absence> findAllAbsencesWithStudentByModuleId(@Param("moduleId") Long moduleId);
+    
 
     @EntityGraph(attributePaths={"enrollment.student", "session.module"})
     public List<Absence> findAll(@Nullable Specification<Absence> spec, Sort sort);
